@@ -1,6 +1,8 @@
 
 import os.path
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,16 +72,22 @@ TEMPLATES = [
         },
     },
 ]
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin',
+#         'HOST': 'db',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
 }
+
 
 DEBUG = True
 ALLOWED_HOSTS = ['*']
@@ -89,29 +97,6 @@ ALLOWED_HOSTS = ['*']
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#         'USER': 'Alina',
-#         'PASSWORD': 'masana19',
-#         'HOST': 'db',  # Имя сервиса
-#         'PORT': '5432',
-#     }
-# }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DATABASE_NAME', 'postgres'),
-#         'USER': os.getenv('DATABASE_USER', 'postgres'),
-#         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'admin'),
-#         'HOST': os.getenv('DATABASE_HOST', 'db'),
-#         'PORT': os.getenv('DATABASE_PORT', '5432'),
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -181,5 +166,8 @@ ASGI_APPLICATION = 'myproject.asgi.application'
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels.layers.InMemoryChannelLayer",
+        "CONFING": {
+            "hosts": [os.getenv('REDIS_URL')],
+        }
     },
 }
