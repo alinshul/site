@@ -1,0 +1,100 @@
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+.cache/
+
+# Virtual environments
+venv/
+venv*/
+ENV/
+.env/
+.venv/
+ven313/
+
+# IDE and editor folders/files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build and distribution outputs
+dist/
+build/
+out/
+
+# Test and debug artifacts
+test/
+tests/
+*_test.py
+*.log
+debug/
+
+# Version control
+.git/
+.gitignore
+.svn/
+.hg/
+
+# Node.js (if any)
+node_modules/
+npm-debug.log
+yarn-debug.log
+
+# Go (if any)
+/vendor/
+*.test
+.go-cache/
+
+# Java (if any)
+target/
+*.class
+.gradle/
+
+# Environment and secrets
+.env*
+*.env
+*.pem
+*.key
+*.crt
+config.local.*
+*.local.yml
+
+# Project-specific and documentation
+docs/
+*.md
+README*
+
+# Docker and Compose files (do NOT ignore Dockerfile and docker-compose.yml themselves)
+Dockerfile*
+docker-compose*
+!Dockerfile
+!docker-compose.yml
+
+# Temporary and local files
+tmp/
+temp/
+*.tmp
+.local/
+local/
+
+# SQLite database (if not needed in image)
+db.sqlite3
+
+# Static and media roots (if generated at runtime)
+static_root/
+
+# Miscellaneous
+*.exe
+*.bak
+*.old
+
+# Exclude lock files and build tools explicitly (per instructions)
+!*.lock
+!.mvnw
+!.gradlew
+!.mvn/
+!.gradle/
