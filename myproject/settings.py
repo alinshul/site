@@ -1,4 +1,3 @@
-
 import os.path
 from pathlib import Path
 import os
@@ -6,7 +5,6 @@ import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -39,7 +37,6 @@ INSTALLED_APPS = [
     'channels',
 
 ]
-
 
 TELEGRAM_BOT_TOKEN = '8082851749:AAFjzwhJt_j9GoXI4lkRebR2TZsjeGUp-Ww'
 TELEGRAM_ADMIN_CHAT_ID = '1764957823'
@@ -84,17 +81,21 @@ TEMPLATES = [
 # }
 
 
-# DATABASES = {
-#     'default': dj_database_url.parse(os.getenv('DATABASE_URL'))
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600,
-        conn_health_checks=True
-    )
+    'default': dj_database_url.parse(os.getenv('DATABASE_URL')),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.getenv('DATABASE_URL'),
+#         conn_max_age=600,
+#         conn_health_checks=True
+#     )
+# }
 
 
 DEBUG = True
@@ -124,7 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -135,7 +135,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 
@@ -161,13 +160,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')  # Куда collectstatic к
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # для csrf токена
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000'
 ]
-
 
 ASGI_APPLICATION = 'myproject.asgi.application'
 
