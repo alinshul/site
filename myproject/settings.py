@@ -100,6 +100,7 @@ DATABASES = {
 
 DEBUG = True
 ALLOWED_HOSTS = ['*']
+
 # WSGI_APPLICATION = 'myproject.wsgi.application'
 
 
@@ -163,7 +164,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # для csrf токена
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
-    'http://127.0.0.1:8000'
+    'http://127.0.0.1:8000',
+    'https://site-56nf.onrender.com'
 ]
 
 ASGI_APPLICATION = 'myproject.asgi.application'
